@@ -33,14 +33,16 @@ while True:
             link = f'https://gosavy.com/{link}'
 
 
-            if last_percen<100 and annual_interest<20:
+            if last_percen<100 and annual_interest>20:
                 embed = DiscordEmbed(title='UPDATE!', description=f"We Found One That Meets The Criteria.\n\nAnnual Interest Rate: {annual_interest}%\nLast Percentage: {last_percen}% \n Time: {date_time1}\n Here is the link: {link}")
                 webhook.add_embed(embed)
                 response = webhook.execute()
                 webhook.remove_embeds()
+                print('bot sent files')
     except:
         embed = DiscordEmbed(title='Something Wrong!', description=f"This could be the sites problem. \nCheck if the website is working on your browser.\nOr contact Your Developer(sorowerhossan01-fiverr)")
         webhook.add_embed(embed)
         response = webhook.execute()
         webhook.remove_embeds()
-    sleep(10)
+        print('need your help, sorower')
+    sleep(300)
