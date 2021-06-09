@@ -16,7 +16,7 @@ date_time1 = f'{date_1}-{month}-{year} at {hour}:{minute}'
 
 from discord_webhook import DiscordWebhook, DiscordEmbed
 webhook = DiscordWebhook(
-    url='https://discord.com/api/webhooks/838813421390397450/Ts0Gk0hsXT4LEqtRqiiO-G2EJMc5_BWJwihfiSI9FZsrQHyNnRxcT6MH1-H5TLNN0QTg', username="GLOSAVY- LIST OF LOANS, UPDATE!!")
+    url='https://discordapp.com/api/webhooks/852078898531663893/6Lh_exi9UYdNHWeqv05XtFMODBE0jc7JOOpoeXhF-QzpqIEtEsLI_KfsIL0E2v6q87R0', username="GLOSAVY- LIST OF LOANS, UPDATE!!")
 
 
 while True:
@@ -43,4 +43,4 @@ while True:
         webhook.add_embed(embed)
         response = webhook.execute()
         webhook.remove_embeds()
-    sleep(5)
+    sleep(10)
