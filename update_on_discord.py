@@ -16,7 +16,7 @@ date_time1 = f'{date_1}-{month}-{year} at {hour}:{minute}'
 
 from discord_webhook import DiscordWebhook, DiscordEmbed
 webhook = DiscordWebhook(
-    url='https://discordapp.com/api/webhooks/852078898531663893/6Lh_exi9UYdNHWeqv05XtFMODBE0jc7JOOpoeXhF-QzpqIEtEsLI_KfsIL0E2v6q87R0', username="GLOSAVY- LIST OF LOANS, UPDATE!!")
+    url='https://discord.com/api/webhooks/838813421390397450/Ts0Gk0hsXT4LEqtRqiiO-G2EJMc5_BWJwihfiSI9FZsrQHyNnRxcT6MH1-H5TLNN0QTg', username="GLOSAVY- LIST OF LOANS, UPDATE!!")
 
 
 while True:
@@ -28,18 +28,21 @@ while True:
 
         for tr in trs:
             tds = tr.findAll('td')
-            annual_interest = float(tds[3].text.replace('%',''))
-            last_percen = float(tds[8].text.replace('%',''))
-            link = tds[-1].find('a')['href']
-            link = f'https://gosavy.com/{link}'
+            try:
+                annual_interest = float(tds[3].text.replace('%',''))
+                last_percen = float(tds[8].text.replace('%',''))
+                link = tds[-1].find('a')['href']
+                link = f'https://gosavy.com/{link}'
 
 
-            if last_percen<100 and annual_interest>20:
-                embed = DiscordEmbed(title='UPDATE!', description=f"We Found One That Meets The Criteria.\n\nAnnual Interest Rate: {annual_interest}%\nLast Percentage: {last_percen}% \n Time: {date_time1}\n Here is the link: {link}")
-                webhook.add_embed(embed)
-                response = webhook.execute()
-                webhook.remove_embeds()
-                print('bot sent files')
+                if last_percen<100 and annual_interest>20:
+                    embed = DiscordEmbed(title='UPDATE!', description=f"We Found One That Meets The Criteria.\n\nAnnual Interest Rate: {annual_interest}%\nLast Percentage: {last_percen}% \n Time: {date_time1}\n Here is the link: {link}")
+                    webhook.add_embed(embed)
+                    response = webhook.execute()
+                    webhook.remove_embeds()
+                    print('bot sent files')
+            except:
+                pass
     except:
         embed = DiscordEmbed(title='Something Wrong!', description=f"This could be the sites problem. \nCheck if the website is working on your browser.\nOr contact Your Developer(sorowerhossan01-fiverr)")
         webhook.add_embed(embed)
