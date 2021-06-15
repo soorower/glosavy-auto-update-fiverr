@@ -20,6 +20,7 @@ webhook = DiscordWebhook(
 
 
 while True:
+    print('still running..')
     try:
         r = requests.get('https://gosavy.com/lt/paskolu-sarasas',headers = headers)
         soup  = bs(r.content,'html.parser')
@@ -45,4 +46,4 @@ while True:
         response = webhook.execute()
         webhook.remove_embeds()
         print('need your help, sorower')
-    sleep(300)
+    sleep(30)
