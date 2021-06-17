@@ -49,4 +49,4 @@ while True:
         response = webhook.execute()
         webhook.remove_embeds()
         print('need your help, sorower')
-    sleep(30)
+    sleep(10)
